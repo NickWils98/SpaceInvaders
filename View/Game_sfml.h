@@ -5,25 +5,39 @@
 #ifndef SPACEINVADERS_GAME_SFML_H
 #define SPACEINVADERS_GAME_SFML_H
 
+#include "PlayerTank_sfml.h"
 #include <SFML/Graphics.hpp>
-
+#include <memory>
 
 class Game_sfml {
+  // protected:
+  //    struct coordinates{
+  //        int x;
+  //        int y;
+  //    };
 public:
-    Game_sfml();
+  Game_sfml();
 
-    virtual ~Game_sfml();
+  virtual ~Game_sfml();
 
-    void run();
+  void handleEvent();
 
-    bool isWindowOpen();
+  void run();
 
+  bool isWindowOpen();
+
+  void render();
+
+  void createPlayer(std::vector<float>);
+
+  void update(std::vector<float>);
+
+  static std::vector<bool> getInput();
 
 private:
-    sf::RenderWindow m_window;
-    sf::View view;
-
+  sf::RenderWindow m_window;
+  std::vector<std::shared_ptr<sf::Texture>> textures = {};
+  std::shared_ptr<PlayerTank_sfml> player;
 };
 
-
-#endif //SPACEINVADERS_GAME_SFML_H
+#endif // SPACEINVADERS_GAME_SFML_H

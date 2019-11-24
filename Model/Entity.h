@@ -6,15 +6,14 @@
 #define SPACEINVADERS_ENTITY_H
 
 #include <iostream>
-#include <vector>
 #include <memory>
+#include <vector>
 
 class Entity {
 public:
-    Entity();
+  Entity();
 
-    virtual ~Entity();
+  virtual ~Entity();
 };
 
-
-#endif //SPACEINVADERS_ENTITY_H
+#endif // SPACEINVADERS_ENTITY_H

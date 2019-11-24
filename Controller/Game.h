@@ -5,26 +5,31 @@
 #ifndef SPACEINVADERS_GAME_H
 #define SPACEINVADERS_GAME_H
 
+#include "../Model/Entity.h"
+#include "../Model/PlayerTank.h"
 #include "../View/Game_sfml.h"
+#include "../View/PlayerTank_sfml.h"
 #include <iostream>
 #include <memory>
 
-
 class Game {
 public:
-    Game();
+  Game();
 
-    virtual ~Game();
+  virtual ~Game();
 
-    void run();
+  void run();
 
-    void init();
+  void init();
+
+  static void moveObjects();
 
 private:
-    bool Game_open = false;
+  bool Game_open = false;
 
-    std::shared_ptr<Game_sfml> gameSfml;
+  std::shared_ptr<Game_sfml> gameSfml;
+  std::shared_ptr<PlayerTank> player;
+  std::vector<bool> input = {};
 };
 
-
-#endif //SPACEINVADERS_GAME_H
+#endif // SPACEINVADERS_GAME_H

@@ -5,19 +5,19 @@
 #ifndef SPACEINVADERS_WORLD_H
 #define SPACEINVADERS_WORLD_H
 
-
 #include "Entity.h"
 
-class World : Entity {
+class World : public Entity {
 public:
-    World();
+  World();
 
-    ~World() override ;
+  ~World() override;
+  void add(const std::shared_ptr<Entity>& obj);
+
+    virtual void render() = 0;
 
 private:
-    std::vector<std::shared_ptr<Entity>> entityList;
-
+  std::vector<std::shared_ptr<Entity>> entityList;
 };
 
-
-#endif //SPACEINVADERS_WORLD_H
+#endif // SPACEINVADERS_WORLD_H

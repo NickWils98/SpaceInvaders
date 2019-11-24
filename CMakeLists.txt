@@ -11,7 +11,7 @@ SET(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${PROJECT_SOURCE_DIR}/cmake/Modules/
 FIND_PACKAGE(SFML 2 COMPONENTS system window graphics)
 
 # The source files to compile
-SET(SRC main.cpp Model/Entity.cpp Model/Entity.h Controller/Game.cpp Controller/Game.h View/Game_sfml.cpp View/Game_sfml.h Model/World.cpp Model/World.h)
+SET(SRC main.cpp Model/Entity.cpp Model/Entity.h Controller/Game.cpp Controller/Game.h View/Game_sfml.cpp View/Game_sfml.h Model/World.cpp Model/World.h Model/EnemyShip.cpp Model/EnemyShip.h Model/PlayerTank.cpp Model/PlayerTank.h View/PlayerTank_sfml.cpp View/PlayerTank_sfml.h)
 
 # Add include dirs for SFML
 # (The SFML_INCLUDE_DIR variable is defined by FindSFML.cmake, if SFML was found)

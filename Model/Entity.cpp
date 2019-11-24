@@ -4,8 +4,6 @@
 
 #include "Entity.h"
 
-Entity::Entity() {}
+Entity::Entity() = default;
 
-Entity::~Entity() {
-
-}
+Entity::~Entity() = default;
