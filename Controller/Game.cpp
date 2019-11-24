@@ -8,6 +8,7 @@ Game::Game() {
   // make world logic
   gameSfml = std::make_shared<Game_sfml>();
   Game_open = gameSfml->isWindowOpen();
+  world = std::make_shared<World>();
 }
 
 Game::~Game() = default;
@@ -17,8 +18,8 @@ void Game::run() {
   while (Game_open) {
     Game_open = gameSfml->isWindowOpen();
     input = gameSfml->getInput();
-    player->movePlayer(input);
-    std::vector<float> newCoordinates = player->getPos();
+    world->interpretInput(input);
+    std::vector<float> newCoordinates = world->getPos();
     gameSfml->update(newCoordinates);
     gameSfml->render();
     gameSfml->run();
@@ -26,9 +27,9 @@ void Game::run() {
 }
 
 void Game::init() {
-  player = std::make_shared<PlayerTank>();
-  std::vector<float> pos = player->getPos();
-  gameSfml->createPlayer(pos);
+    world->addPlayer();
+    std::vector<float> pos = world->getPos();
+    gameSfml->createPlayer(pos);
 }
 
 void Game::moveObjects() {}

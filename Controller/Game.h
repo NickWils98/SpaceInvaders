@@ -6,9 +6,8 @@
 #define SPACEINVADERS_GAME_H
 
 #include "../Model/Entity.h"
-#include "../Model/PlayerTank.h"
 #include "../View/Game_sfml.h"
-#include "../View/PlayerTank_sfml.h"
+#include "../Model/World.h"
 #include <iostream>
 #include <memory>
 
@@ -28,8 +27,9 @@ private:
   bool Game_open = false;
 
   std::shared_ptr<Game_sfml> gameSfml;
-  std::shared_ptr<PlayerTank> player;
   std::vector<bool> input = {};
+  std::shared_ptr<World> world;
+
 };
 
 #endif // SPACEINVADERS_GAME_H

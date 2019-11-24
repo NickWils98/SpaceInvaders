@@ -6,16 +6,19 @@
 #define SPACEINVADERS_PLAYERTANK_H
 
 #include <vector>
+#include "Entity.h"
 
-class PlayerTank {
+class PlayerTank : public Entity {
 public:
   PlayerTank();
 
   virtual ~PlayerTank();
 
-  void movePlayer(std::vector<bool>);
-
   std::vector<float> getPos() const;
+
+  void goLeft();
+
+  void goRight();
 
 private:
   struct coordinats {
