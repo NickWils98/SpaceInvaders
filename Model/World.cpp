@@ -4,7 +4,10 @@
 
 #include "World.h"
 
-World::World() { entityList = {}; }
+World::World() {
+    entityList = {};
+    enemy = std::make_shared<EnemyControl>();
+}
 
 World::~World() = default;
 
@@ -33,19 +36,18 @@ void World::interpretInput(std::vector<bool> inp) {
 std::vector<std::vector<float>> World::addEnemys(int num) {
   std::vector<std::vector<float>> list;
   for (int i = 0; i < num; ++i) {
-    float posy = 30.0 * ceil(list.size() / 8);
-    float posx = 50.0 * (list.size() - floor(list.size() / 8) * 8);
-    std::vector<float> vec = {posx, posy};
-    Enemylist.push_back(std::make_shared<EnemyShip>(vec));
-    list.push_back(Enemylist.back()->getPos());
+    std::vector<float> coord = enemy->add();
+    list.push_back(coord);
   }
   return list;
 }
 
+void World::moveEnemys() {
+    enemy->move();
+}
+
 std::vector<std::vector<float>> World::getEnemyPos() const {
-  std::vector<std::vector<float>> list;
-  for (const auto& enemy : Enemylist) {
-    list.push_back(enemy->getPos());
-  }
+  std::vector<std::vector<float>> list = enemy->getCoordinates();
+
   return list;
 }

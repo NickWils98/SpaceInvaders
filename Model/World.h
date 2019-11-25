@@ -5,9 +5,9 @@
 #ifndef SPACEINVADERS_WORLD_H
 #define SPACEINVADERS_WORLD_H
 
-#include "EnemyShip.h"
 #include "Entity.h"
 #include "PlayerTank.h"
+#include "EnemyControl.h"
 #include <cmath>
 
 class World : public Entity {
@@ -27,13 +27,14 @@ public:
   std::vector<std::vector<float>> getEnemyPos() const;
 
   void interpretInput(std::vector<bool>);
+  void moveEnemys();
 
   //  void render();
 
 private:
   std::vector<std::shared_ptr<Entity>> entityList;
   std::shared_ptr<PlayerTank> player;
-  std::vector<std::shared_ptr<EnemyShip>> Enemylist;
+  std::shared_ptr<EnemyControl> enemy;
 };
 
 #endif // SPACEINVADERS_WORLD_H

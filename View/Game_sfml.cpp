@@ -63,8 +63,11 @@ void Game_sfml::createPlayer(std::vector<float> pos) {
   player->update(std::move(pos));
 }
 
-void Game_sfml::update(std::vector<float> pos) {
-  player->update(std::move(pos));
+void Game_sfml::update(std::vector<std::vector<float>> pos) {
+  player->update(pos.back());
+    for (int i = 0; i < pos.size()-1; ++i) {
+        Enemylist[i]->update(pos[i]);
+    }
 }
 
 void Game_sfml::addEnemy(int num, std::vector<std::vector<float>> pos) {

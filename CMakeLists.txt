@@ -15,7 +15,7 @@ SET(SRC main.cpp Model/Entity.cpp Model/Entity.h Controller/Game.cpp
         Controller/Game.h View/Game_sfml.cpp View/Game_sfml.h Model/World.cpp
         Model/World.h Model/EnemyShip.cpp Model/EnemyShip.h Model/PlayerTank.cpp
         Model/PlayerTank.h View/PlayerTank_sfml.cpp View/PlayerTank_sfml.h
-        View/EnemyShip_sfml.cpp View/EnemyShip_sfml.h)
+        View/EnemyShip_sfml.cpp View/EnemyShip_sfml.h Model/Enemy.cpp Model/Enemy.h Model/EnemyControl.cpp Model/EnemyControl.h)
 
 #Add include dirs for SFML
 #(The SFML_INCLUDE_DIR variable is defined by FindSFML.cmake, if SFML was found)

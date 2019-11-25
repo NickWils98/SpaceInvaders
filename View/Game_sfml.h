@@ -31,7 +31,7 @@ public:
 
   void createPlayer(std::vector<float>);
 
-  void update(std::vector<float>);
+  void update(std::vector<std::vector<float>>);
 
   static std::vector<bool> getInput();
 

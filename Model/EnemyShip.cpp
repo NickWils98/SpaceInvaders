@@ -12,3 +12,7 @@ EnemyShip::EnemyShip(std::vector<float> coord) {
 EnemyShip::~EnemyShip() = default;
 
 const std::vector<float> &EnemyShip::getPos() const { return pos; }
+
+void EnemyShip::setPos(const std::vector<float> &pos) {
+    EnemyShip::pos = pos;
+}
