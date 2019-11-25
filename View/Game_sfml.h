@@ -5,6 +5,7 @@
 #ifndef SPACEINVADERS_GAME_SFML_H
 #define SPACEINVADERS_GAME_SFML_H
 
+#include "EnemyShip_sfml.h"
 #include "PlayerTank_sfml.h"
 #include <SFML/Graphics.hpp>
 #include <memory>
@@ -34,10 +35,13 @@ public:
 
   static std::vector<bool> getInput();
 
+  void addEnemy(int, std::vector<std::vector<float>>);
+
 private:
   sf::RenderWindow m_window;
   std::vector<std::shared_ptr<sf::Texture>> textures = {};
   std::shared_ptr<PlayerTank_sfml> player;
+  std::vector<std::shared_ptr<EnemyShip_sfml>> Enemylist;
 };
 
 #endif // SPACEINVADERS_GAME_SFML_H

@@ -5,22 +5,22 @@
 #include "PlayerTank.h"
 
 PlayerTank::PlayerTank() {
-  pos.x = 20;
-  pos.y = 400;
+  pos.push_back(20);
+  pos.push_back(400);
 }
 
 PlayerTank::~PlayerTank() = default;
 
-std::vector<float> PlayerTank::getPos() const { return {pos.x, pos.y}; }
+std::vector<float> PlayerTank::getPos() const { return pos; }
 
 void PlayerTank::goRight() {
-    if (pos.x < 450) {
-        pos.x += 0.1;
-    }
+  if (pos[0] < 450) {
+    pos[0] += 0.1;
+  }
 }
 
 void PlayerTank::goLeft() {
-    if (pos.x > 0) {
-        pos.x -= 0.1;
-    }
+  if (pos[0] > 0) {
+    pos[0] -= 0.1;
+  }
 }

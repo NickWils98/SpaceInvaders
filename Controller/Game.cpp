@@ -19,7 +19,7 @@ void Game::run() {
     Game_open = gameSfml->isWindowOpen();
     input = gameSfml->getInput();
     world->interpretInput(input);
-    std::vector<float> newCoordinates = world->getPos();
+    std::vector<float> newCoordinates = world->getPlayerPos();
     gameSfml->update(newCoordinates);
     gameSfml->render();
     gameSfml->run();
@@ -27,9 +27,12 @@ void Game::run() {
 }
 
 void Game::init() {
-    world->addPlayer();
-    std::vector<float> pos = world->getPos();
-    gameSfml->createPlayer(pos);
+  std::vector<float> pos;
+  pos = world->addPlayer();
+  gameSfml->createPlayer(pos);
+  std::vector<std::vector<float>> posEnemy;
+  posEnemy = world->addEnemys(10);
+  gameSfml->addEnemy(10, posEnemy);
 }
 
 void Game::moveObjects() {}

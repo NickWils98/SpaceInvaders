@@ -39,6 +39,9 @@ bool Game_sfml::isWindowOpen() { return m_window.isOpen(); }
 void Game_sfml::render() {
   m_window.clear();
   player->render();
+  for (const auto &enemy : Enemylist) {
+    enemy->render();
+  }
   m_window.display();
 }
 
@@ -57,7 +60,19 @@ void Game_sfml::createPlayer(std::vector<float> pos) {
   textures.push_back(tex);
 
   player = std::make_shared<PlayerTank_sfml>(m_window, tex);
-  update(std::move(pos));
+  player->update(std::move(pos));
 }
 
-void Game_sfml::update(std::vector<float> pos) { player->update(std::move(pos)); }
+void Game_sfml::update(std::vector<float> pos) {
+  player->update(std::move(pos));
+}
+
+void Game_sfml::addEnemy(int num, std::vector<std::vector<float>> pos) {
+  std::shared_ptr<sf::Texture> tex = std::make_shared<sf::Texture>();
+  tex->loadFromFile("./../resc/Spaceship1.png");
+  textures.push_back(tex);
+  for (int i = 0; i < num; ++i) {
+    Enemylist.push_back(std::make_shared<EnemyShip_sfml>(m_window, tex));
+    Enemylist.back()->update(pos[i]);
+  }
+}

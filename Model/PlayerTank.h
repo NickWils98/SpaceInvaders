@@ -5,14 +5,14 @@
 #ifndef SPACEINVADERS_PLAYERTANK_H
 #define SPACEINVADERS_PLAYERTANK_H
 
-#include <vector>
 #include "Entity.h"
+#include <vector>
 
 class PlayerTank : public Entity {
 public:
   PlayerTank();
 
-  virtual ~PlayerTank();
+  ~PlayerTank() override;
 
   std::vector<float> getPos() const;
 
@@ -21,11 +21,7 @@ public:
   void goRight();
 
 private:
-  struct coordinats {
-    float x = 0;
-    float y = 0;
-  };
-  coordinats pos;
+  std::vector<float> pos;
 };
 
 #endif // SPACEINVADERS_PLAYERTANK_H
